@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Website Sekolah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: black;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%; 
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .messages {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            word-wrap: break-word; 
+        }
+
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px; 
+            }
+            button {
+                padding: 12px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="taqi_header">
+        <img src="gambar/Logo-Nesatta-150x150.png" alt="Logo SMPN 1 Tasikmalaya"> 
+        <h1>SMPN 1 Tasikmalaya</h1> 
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <nav>
+            <ul class="taqi_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="visimisi.html">Visi Misi</a></li>
+                <li><a href="galery.html">Galeri</a></li>
+                <li><a href="struktur.html">Struktur</a></li>
+                <li><a href="berita.html">Berita</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="ppdb.html">PPDB</a></li>
+                <li><a href="buku_tamu.html">Buku Tamu</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Kirim Pesan</h2>
+            <div class="form-group">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan:</label>
+                <textarea id="message" rows="4" placeholder="Masukkan pesan Anda" required></textarea>
+            </div>
+            <button onclick="sendMessage()">Kirim Pesan</button>
+            <h2>Pesan Pengunjung</h2>
+            <div class="messages" id="messages">
+                <div class="message">
+                    <strong>Asep:</strong> "Kunjungan saya ke website sekolah ini sangat memuaskan; saya bisa menemukan informasi mengenai kegiatan, prestasi siswa, dan proses pendaftaran dengan mudah."
+                    <br></br>
+                    <strong>Udin</strong> "Website ini menjadi sumber informasi utama yang dapat diandalkan bagi kami untuk mengetahui setiap perkembangan dan pengumuman terbaru dari sekolah."
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            function sendMessage() {
+                const name = document.getElementById('name').value;
+                const message = document.getElementById('message').value;
+                const messagesContainer = document.getElementById('messages');
+    
+                if (name && message) {
+                    const newMessage = document.createElement('div');
+                    newMessage.classList.add('message');
+                    newMessage.innerHTML = `<strong>${name}:</strong> "${message}"`;
+                    messagesContainer.appendChild(newMessage);
+    
+                    // Reset form fields
+                    document.getElementById('name').value = '';
+                    document.getElementById('message').value = '';
+                } else {
+                    alert('Silakan isi semua kolom!');
+                }
+            }
+        </script>
+       
+    </main>
+    <footer>
+        <p>&copy; Copyright - Taqi Muhammad Husein</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

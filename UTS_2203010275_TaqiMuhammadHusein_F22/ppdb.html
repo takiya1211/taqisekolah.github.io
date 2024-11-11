@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sekolah</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: black;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive  */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px; 
+            }
+            button {
+                padding: 12px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="taqi_header">
+        <img src="gambar/Logo-Nesatta-150x150.png" alt="Logo SMPN 1 Tasikmalaya"> 
+        <h1>SMPN 1 Tasikmalaya</h1>
+        <div class="menu-toggle" id="menuToggle">☰</div> 
+        <nav>
+            <ul class="taqi_menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="visimisi.html">Visi Misi</a></li>
+                <li><a href="galery.html">Galeri</a></li>
+                <li><a href="struktur.html">Struktur</a></li>
+                <li><a href="berita.html">Berita</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="ppdb.html">PPDB</a></li>
+                <li><a href="buku_tamu.html">Buku Tamu</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Pendaftaran </h2>
+            <form id="ppdbForm">
+                <div class="form-group">
+                    <label for="fullName">Nama Lengkap:</label>
+                    <input type="text" id="fullName" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate">Tanggal Lahir:</label>
+                    <input type="date" id="birthDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Jenis Kelamin:</label>
+                    <select id="gender" required>
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">Alamat:</label>
+                    <textarea id="address" rows="3" placeholder="Masukkan alamat lengkap" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="parentName">Nama Orang Tua/Wali:</label>
+                    <input type="text" id="parentName" placeholder="Masukkan nama orang tua/wali" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber">Nomor Telepon:</label>
+                    <input type="tel" id="contactNumber" placeholder="Masukkan nomor telepon" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Masukkan alamat email" required>
+                </div>
+                <button type="submit">Daftar</button>
+            </form>
+        </div>
+    
+        <script>
+            document.getElementById('ppdbForm').addEventListener('submit', function(event) {
+                event.preventDefault(); 
+    
+                
+                const fullName = document.getElementById('fullName').value;
+                const birthDate = document.getElementById('birthDate').value;
+                const gender = document.getElementById('gender').value;
+                const address = document.getElementById('address').value;
+                const parentName = document.getElementById('parentName').value;
+                const contactNumber = document.getElementById('contactNumber').value;
+                const email = document.getElementById('email').value;
+    
+                
+                alert(`Pendaftaran Berhasil!\nNama: ${fullName}\nTanggal Lahir: ${birthDate}\nJenis Kelamin: ${gender}\nAlamat: ${address}\nNama Orang Tua/Wali: ${parentName}\nNomor Telepon: ${contactNumber}\nEmail: ${email}`);
+    
+                
+                document.getElementById('ppdbForm').reset();
+            });
+        </script>
+    </main>
+    <footer>
+        
+        <p>&copy; Copyright - Taqi Muhammad Husein</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
